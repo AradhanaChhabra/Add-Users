@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import DisplayUser from './DisplayUser';
+import UserForm from './UserForm';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [currentUsers, setUsers] = useState([]);
+
+  const addUserFunc = (newUser) => {
+    setUsers((prevState) => {
+      return  [...prevState, newUser  ]
+    });
+  }
+  console.log("hey");
+  console.log(currentUsers);
+
+  return (<div>
+    <UserForm addUserFunc={addUserFunc} />
+    <DisplayUser arr={currentUsers}/>
+  </div>);
 }
 
 export default App;
