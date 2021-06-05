@@ -8,7 +8,7 @@ function App() {
   const addUserFunc = (newUser) => {
     setUsers((prevState) => [...prevState, newUser  ]);
   }
-  console.log("hey");
+  
   console.log(currentUsers);
 
   return (<div>
